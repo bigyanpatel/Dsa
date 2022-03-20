@@ -468,7 +468,7 @@
             int data = two.data + oc;
         } else{
             int oc = addListHelper(one.next, pv1 -1, two.next, pv2 -1, res);
-            int data = one.data + two.data + oc;
+            int data = one.data + two.data + oc; 
         }
 
         int nd = data % 10;
