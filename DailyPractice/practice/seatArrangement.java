@@ -3,11 +3,19 @@ import java.util.*;
 public class seatArrangement {
 
     private static int findMat(int x, int y){
-        int[][] mat = new int[1000][1000];
         int rowNo = 0;
         int colNo = 0;
+        
+        int rowEnd, colEnd;
 
-        int rowEnd = 999, colEnd = 999;
+        if(x > y){
+            rowEnd = x;
+            colEnd = x;
+        } else{
+            rowEnd = y;
+            colEnd = y;
+        }
+        int[][] mat = new int[rowEnd + 1][colEnd + 1]; 
 
         int count = 1;
         
