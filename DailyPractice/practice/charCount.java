@@ -24,7 +24,6 @@ public class charCount {
         char ch;
         int count = 0;
         for(int i = 0; i < charFreq.length; i++){
-            // int value = i + 'a';
             ch = (char)(i + 'a');
             if(charFreq[i] >= 2){
                 System.out.print(ch + " : " + charFreq[i] + " ");

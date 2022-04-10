@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class test {
+public class seatArrangement {
 
     private static int findMat(int x, int y){
         int[][] mat = new int[1000][1000];
