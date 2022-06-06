@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class Solution 
+{
+    public static void sort012(int[] arr){
+    int next1 = 0;
+
+       int next2 = arr.length-1;
+
+       int i = 0;
+
+       while(i <= next2){
+
+           if(arr[i] == 0){
+
+               int temp = arr[next1];
+
+               arr[next1] = arr[i];
+
+               arr[i] = temp;
+
+               i++;
+
+               next1++;
+
+           }
+
+           else if(arr[i] == 2){
+
+               int temp = arr[next2];
+
+               arr[next2] = arr[i];
+
+               arr[i] = temp;
+
+               next2--;
+
+           }
+
+           else{
+
+               i++;
+
+           }
+
+       }
+    }
+}
