@@ -1,0 +1,19 @@
+import java.util.*;
+public class Solution {
+    public static int[] missingAndRepeating(ArrayList<Integer> arr, int n) {
+        int[] temp = new int[n];
+       int dup=0;
+       int mis=0;
+       for(int rr:arr){
+           temp[rr-1]+=1;
+       }
+       for(int i=1;i<=temp.length;i++){
+           int rr = temp[i-1];
+           if(rr==0){
+               mis=i;
+           }
+           if(rr==2) dup =i;
+       }
+       return new int[]{mis, dup};
+    }
+}
