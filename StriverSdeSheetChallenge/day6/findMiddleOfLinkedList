@@ -1,0 +1,73 @@
+import java.util.* ;
+import java.io.*; 
+/****************************************************************
+
+    Following is the class structure of the Node class:
+
+       class Node 
+        { 
+        public:
+            int data;
+            Node next;
+            Node(int data) 
+            {
+              this.data = data;
+              this.next = null;
+            }
+        };
+
+*****************************************************************/
+
+public class Solution {
+    public static Node getMiddle(Node head){
+
+   //  0/1 nodes
+
+   if(head==null || head.next == null){
+
+       return head;
+
+   }
+
+   //2 nodes
+
+   if(head.next.next == null){
+
+       return head.next;
+
+   }
+
+   //Algo  now
+
+   Node slow = head;
+
+   Node fast = head.next;
+
+   while(fast!=null){
+
+       fast = fast.next; //1 badaya fast
+
+       //2nd badane ke pehle check if null
+
+       if(fast!=null){
+
+           fast = fast.next;
+
+       }
+
+       
+
+       slow = slow.next;
+
+       //slow bhi bad gaya aage
+
+   }
+
+   return slow; //slow will be at middle when fast at end /null
+
+}
+    public static Node findMiddle(Node head) 
+    {
+        return getMiddle(head);
+    }
+}
