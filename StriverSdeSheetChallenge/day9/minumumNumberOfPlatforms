@@ -1,0 +1,32 @@
+import java.util.*;
+public class Solution {
+    public static int calculateMinPatforms(int at[], int dt[], int n) {
+           int MinPlatforms[] = new int[2362];
+
+for(int i=0;i<n;i++)
+
+{
+
+ MinPlatforms[at[i]]++;
+
+ MinPlatforms[dt[i]+1]--;
+
+}
+
+for(int i=1;i<2361;i++)
+
+{
+
+ MinPlatforms[i] += MinPlatforms[i-1];
+
+}
+
+int ans = Integer.MIN_VALUE;
+
+for(int i=0;i<2361;i++)
+
+ ans = Integer.max(ans,MinPlatforms[i]);
+
+return ans;
+    }
+}
