@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Solution {
+
+	public static ArrayList<String> wordBreak(String s, ArrayList<String> dict) {
+        Set<String> wordDict = new HashSet<String>();
+        for (String x : dict){
+            wordDict.add(x);
+        }
+            
+        HashMap<Integer, ArrayList<String>> memo = new HashMap<>(); // <Starting index, rst list>
+        return dfs(s, 0, wordDict, memo);
+    }
+
+    private static ArrayList<String> dfs(String s, int start, Set<String> dict, HashMap<Integer, ArrayList<String>> memo) {
+        if (memo.containsKey(start)) {
+            return memo.get(start);
+        }
+
+        ArrayList<String> rst = new ArrayList<>();
+        if (start == s.length()) {
+            rst.add("");
+            return rst;
+        }
+
+        String curr = s.substring(start);
+        for (String word: dict) {
+            if (curr.startsWith(word)) {
+                ArrayList<String> sublist = dfs(s, start + word.length(), dict, memo);
+                for (String sub : sublist) {
+                    rst.add(word + (sub.isEmpty() ? "" : " ") + sub);
+                }
+            }
+        }
+
+        memo.put(start, rst);
+        return rst;
+    }
+}
