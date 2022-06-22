@@ -1,0 +1,52 @@
+
+public class Stack {
+    int size;
+    int arr[];
+    int top;
+    Stack(int capacity){
+        this.top = -1;
+        this.size = capacity;
+        this.arr = new int[size];
+    }
+    void push(int num) {
+        if(size - top != 1){
+            top++;
+            arr[top] = num;
+        }
+    }
+    int pop() {
+        if(top != -1) {
+            int x = arr[top];
+            top--;
+            return x;
+        }
+        else {
+            return -1;
+        }
+    }
+    int top() {
+        if(top != -1) {
+            int x = arr[top];
+            return x;
+        }
+        else {
+            return -1;
+        }
+    }
+    int isEmpty() {
+        if(top == -1) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+    int isFull() {
+        if(size - top == 1) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+}
