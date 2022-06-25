@@ -1,7 +1,9 @@
 public class test {
     public static void main(String[] args) {
-        int x = 9992423;
-        int temp1 = x;
+        int N = 15;
+
+        int temp1 = N;
+        int temp2 = N;
         int num1 = 0; 
         int num2 = 0;
 
@@ -20,14 +22,22 @@ public class test {
             }   
         }
 
-        for(int j = 24; j >= 0; j--){
+        for(int j = 24; j >= 1; j--){
             int ans = (int)Math.pow(2, j);
-            if(ans <= x){
-                x -= ans;
+            if(ans <= temp2){
+                temp2 -= ans;
                 num2++;
             }   
         }
-        if(temp1 == 0 || x == 0)
+        
+        for(int i = 15; i >= 0; i--){
+            int ans = (int)Math.pow(3, i);
+            if(ans <= temp2){
+                temp2 -= ans;
+                num2++;
+            }   
+        }        
             System.out.println(Math.min(num1, num2));
+            // System.out.println(num1);
     }
 }
