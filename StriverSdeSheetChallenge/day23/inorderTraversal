@@ -1,0 +1,23 @@
+import java.util.*;
+public class Solution {
+    public static List < Integer > getInOrderTraversal(TreeNode root) {
+    	ArrayList<Integer> ans=new ArrayList<Integer>() ;
+        Stack<TreeNode> stack=new Stack<>() ;
+        TreeNode newNode=root ;
+        while(true){
+            if(newNode!=null){
+                stack.push(newNode) ;
+                newNode=newNode.left ;
+            }
+            else{
+                if(stack.isEmpty()) break ;
+                else{
+                    newNode=stack.pop() ;
+                    ans.add(newNode.data) ;
+                    newNode=newNode.right ;
+                }
+            }
+        }
+        return ans ;
+    }
+}
