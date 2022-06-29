@@ -1,0 +1,16 @@
+import java.util.*;
+
+public class Solution {
+    private static void preOrder(TreeNode root, ArrayList<Integer> arrList){
+        if(root == null) return;
+        
+        arrList.add(root.data);
+        preOrder(root.left, arrList);
+        preOrder(root.right, arrList);
+    }
+    public static List < Integer > getPreOrderTraversal(TreeNode root) {
+    	ArrayList<Integer> arrList = new ArrayList<>();
+        preOrder(root, arrList);
+        return arrList;
+    }
+}

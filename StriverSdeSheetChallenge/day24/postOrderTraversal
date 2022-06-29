@@ -1,0 +1,16 @@
+import java.util.*;
+
+public class Solution {
+    private static void postOrder(TreeNode root, ArrayList<Integer> arrList){
+        if(root == null) return;
+        
+        postOrder(root.left, arrList);
+        postOrder(root.right, arrList);
+        arrList.add(root.data);
+    }
+    public static List < Integer > getPostOrderTraversal(TreeNode root) {
+    	ArrayList<Integer> arrList = new ArrayList<>();
+        postOrder(root, arrList);
+        return arrList;
+    }
+}

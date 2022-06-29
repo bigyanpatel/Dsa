@@ -1,0 +1,20 @@
+import java.util.*;
+
+public class Solution 
+{
+   private static void helper(int level,TreeNode<Integer> root, ArrayList<Integer> ans){
+    if(root == null) return;
+    if(level==ans.size()){
+        ans.add(root.data);
+    }
+    helper(level+1,root.left,ans);
+    helper(level+1,root.right,ans);
+}
+    public static ArrayList<Integer> getLeftView(TreeNode<Integer> root) 
+    {
+       ArrayList<Integer> arrList = new ArrayList<>();
+        helper(0, root, arrList);
+        return arrList;
+        
+    }
+}
