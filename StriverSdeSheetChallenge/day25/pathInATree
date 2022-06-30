@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Solution {
+    private static boolean solve(ArrayList<Integer> ans, TreeNode  root, int x){
+    if(root == null) return false;
+    if(root.data == x){
+        ans.add(x);
+        return true;
+    }
+    ans.add(root.data);
+    if(solve(ans, root.left, x)) return true;
+    if(solve(ans, root.right, x)) return true;
+    
+    ans.remove(ans.size() - 1);
+    
+    return false;
+    
+}
+
+    public static ArrayList<Integer> pathInATree(TreeNode root, int x) {
+        ArrayList<Integer> ans = new ArrayList<>();
+    solve(ans, root, x);
+    
+    return ans;
+    }
+}
