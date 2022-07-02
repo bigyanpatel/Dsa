@@ -1,0 +1,52 @@
+import java.util.*;
+public class Solution {
+	public static List<Integer> zigZagTraversal(BinaryTreeNode<Integer> root) {
+		 List<Integer> res = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
+        
+        if(root == null)
+            return res;
+        
+        
+        
+        Queue<BinaryTreeNode<Integer>> queue = new LinkedList<>();
+        queue.offer(root);
+        queue.offer(null);// help me identify that level is done
+        int level = 0;
+        
+        while(!queue.isEmpty()){
+            BinaryTreeNode<Integer> rem = queue.poll();
+            
+            // end of current level
+            if(rem == null){
+                
+                //find which level are you now
+                // in even level you have to add res as it is
+                // but in odd level you havr to add res in reverse order
+                if(level % 2 == 0){
+                    ans.addAll(res);
+                } else {
+                    Collections.reverse(res);
+                    ans.addAll(res);
+                }
+                
+                level++;
+                if(!queue.isEmpty()){
+                    queue.offer(null);
+                }
+                
+                res = new ArrayList<>();
+            } else{
+                res.add(rem.data);
+                if(rem.left != null){
+                    queue.offer(rem.left);
+                }
+                if(rem.right != null){
+                    queue.offer(rem.right);
+                }
+            }
+        }
+        return ans;
+
+	}
+}
