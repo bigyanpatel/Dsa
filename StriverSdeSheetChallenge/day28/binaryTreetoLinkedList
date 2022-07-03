@@ -1,0 +1,22 @@
+public class Solution 
+{
+    public static TreeNode<Integer> flattenBinaryTree(TreeNode<Integer> root)
+    {
+        if(root==null){
+        return root;
+    }
+    TreeNode<Integer> curr=root;
+    while(curr!=null){
+        if(curr.left!=null){
+            TreeNode<Integer> prev = curr.left;
+            while(prev.right != null){
+                prev = prev.right;
+            }
+            prev.right = curr.right;
+            curr.right = curr.left;
+        }
+        curr = curr.right;
+    }
+    return root;
+    }
+}
