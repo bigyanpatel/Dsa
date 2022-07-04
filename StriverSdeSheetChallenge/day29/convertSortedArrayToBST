@@ -1,0 +1,24 @@
+import java.util.*;
+
+
+
+public class Solution {
+    private static TreeNode<Integer> helper(ArrayList<Integer>arr, int st, int end)
+{
+    if(st > end)
+        return null;
+    int mid = (st+end)/2;
+    TreeNode<Integer> curr = new TreeNode<Integer>(arr.get(mid));
+    
+    curr.left = helper(arr, st, mid-1);
+    curr.right = helper(arr, mid+1, end);
+    
+    return curr;
+}
+    
+    public static TreeNode<Integer> sortedArrToBST(ArrayList<Integer> arr, int n) {
+        if(n==0)
+            return null;
+        return helper(arr, 0, n-1);
+    }
+}
