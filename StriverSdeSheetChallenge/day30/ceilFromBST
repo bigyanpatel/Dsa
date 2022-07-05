@@ -1,0 +1,19 @@
+public class Solution {
+
+    public  static int findCeil(TreeNode<Integer> root, int X) {
+int fans=-1;
+        while(root!=null)
+        {
+            if(root.data==X) return X;
+            if(root.data<X)
+                root=root.right;
+            else
+            {
+                fans=root.data;
+                root=root.left;
+            }
+        }
+        return fans;
+
+    }
+}

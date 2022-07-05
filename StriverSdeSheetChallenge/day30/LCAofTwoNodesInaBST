@@ -1,0 +1,22 @@
+public class Solution 
+{
+
+    public static TreeNode<Integer> LCAinaBST(TreeNode<Integer> root, TreeNode<Integer> p, TreeNode<Integer> q) 
+    {        
+        // Write your code here
+        if (root == null) {
+            return null;
+        }
+        
+        int curr = root.data;
+        
+        if (curr < p.data && curr < q.data) {
+            return LCAinaBST(root.right, p, q);
+        }
+        if (curr > p.data && curr > q.data) {
+            return LCAinaBST(root.left, p, q);
+        }
+        
+        return root;
+    }
+}
