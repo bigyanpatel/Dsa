@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class Solution {
+
+    static class BSTIterator{
+        Stack<TreeNode<Integer>> order = new Stack<>();
+        BSTIterator(TreeNode<Integer> root){
+            // Write your code here
+            inorder(root);
+        }
+        void inorder(TreeNode<Integer> root){
+            while(root != null){
+                order.push(root);
+                root = root.left;
+            }    
+        }
+
+        int next(){
+            // Write your code here
+            TreeNode<Integer> topi = order.peek();
+            order.pop();
+            inorder(topi.right);
+            return topi.data;
+        }
+
+        boolean hasNext(){
+            // Write your code here
+            return !order.empty();
+        }
+    }
+}

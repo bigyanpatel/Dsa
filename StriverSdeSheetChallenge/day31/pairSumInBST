@@ -1,0 +1,76 @@
+import java.util.*;
+
+public class Solution {
+    private static void helper(BinaryTreeNode root,ArrayList<Integer> store)
+
+{
+
+   if(root==null)
+
+   {
+
+       return;
+
+   }
+
+   helper(root.left,store);
+
+   store.add(root.data);
+
+   helper(root.right,store);  
+
+}
+
+
+	public static boolean pairSumBst(BinaryTreeNode root, int k) {
+		if(root==null)
+
+   {
+
+       return false;
+
+   }
+
+   ArrayList<Integer> store = new ArrayList<>();
+
+   helper(root,store);
+
+   int j= store.size()-1;
+
+   int i=0;
+
+       while(i<j)
+
+       {
+
+           if(store.get(i) + store.get(j)==k)
+
+           {
+
+               return true;
+
+               
+
+           }
+
+           else if(store.get(i) + store.get(j) > k)
+
+           {
+
+               j--;
+
+           }
+
+           else
+
+           {
+
+               i++;
+
+           }
+
+       }
+
+   return false;
+	}
+}
