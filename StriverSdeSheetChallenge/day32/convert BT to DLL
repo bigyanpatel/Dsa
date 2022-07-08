@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Solution {
+    private static void inorder(BinaryTreeNode<Integer> root,ArrayList<Integer> res)
+{
+    if(root==null)
+        return;
+    inorder(root.left,res);
+    res.add(root.data);
+    inorder(root.right,res);
+}
+
+    public static BinaryTreeNode<Integer> BTtoDLL(BinaryTreeNode<Integer> root) {
+        ArrayList<Integer> res = new ArrayList<>();
+    inorder(root,res);
+    BinaryTreeNode<Integer> newnode=new BinaryTreeNode<Integer>(-1);
+    BinaryTreeNode<Integer> t=newnode;
+    for(int i=0;i<res.size();i++)
+    {
+     newnode.right = new BinaryTreeNode<Integer>(res.get(i));
+        BinaryTreeNode<Integer> x = newnode.right;
+         x.left=newnode;
+         newnode=newnode.right;
+    }
+    return t.right;
+    }
+}
