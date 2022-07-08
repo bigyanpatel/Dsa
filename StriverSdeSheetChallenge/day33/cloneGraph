@@ -1,0 +1,11 @@
+public class Solution {
+    public static graphNode cloneGraph(graphNode node) {
+        for(graphNode child:node.neighbours)
+
+           cloneGraph(child);
+
+       graphNode cloneNode=new graphNode(node.data,new java.util.ArrayList(node.neighbours));
+
+       return cloneNode;
+    }
+}
