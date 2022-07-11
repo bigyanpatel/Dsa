@@ -1,0 +1,26 @@
+public class Solution {
+    public static int minSumPath(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int dp[][] = new int[m][n];
+        for(int x=0;x<m;x++){
+            for(int y=0;y<n;y++){
+                if(x==0&&y==0){
+                    dp[x][y] = grid[x][y];
+                }
+                else{
+                    int left = Integer.MAX_VALUE;
+                    int right = Integer.MAX_VALUE;
+                    if(x!=0){
+                        left = grid[x][y] + dp[x-1][y];
+                    }
+                    if(y!=0){
+                        right = grid[x][y] + dp[x][y-1];
+                    }
+                    dp[x][y] = Math.min(left,right);
+                }
+            }
+        }
+        return dp[m-1][n-1];
+    }
+}
