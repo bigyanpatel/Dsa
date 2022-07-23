@@ -20,15 +20,15 @@ public class ClimbStairs {
                 int pos = currStair + jump;
                 if(pos == arr.length) return true;
                 if(map.containsKey(pos) == true){
-                    map.get(pos).add(currStair - 1);
-                    map.get(pos).add(currStair + 1);
+                    map.get(pos).add(pos - 1);
+                    map.get(pos).add(pos + 1);
                 }
             }
         }
         return false;
     }
     public static void main(String[] args) {
-        int[] arr = {0, 0, 0, 1, 0, 0};
+        int[] arr = {0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0};
         System.out.println(isPossible(arr));
     }
 }

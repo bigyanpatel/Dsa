@@ -22,6 +22,13 @@ class climbTheStairs {
     public static void main(String[] args) {
         // Scanner sc = new Scanner(System.in);
         int[] arr = {0, 0, 0, 1, 0};
+
+        HashMap<Integer, HashSet<Integer>> map = new HashMap<>();
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == 0){
+                map.put(i + 1, new HashSet<>());
+            }
+        }
             
         System.out.println(isPossible(arr, 0));
     }
